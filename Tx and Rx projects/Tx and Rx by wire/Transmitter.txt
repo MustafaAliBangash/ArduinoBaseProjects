@@ -1,0 +1,167 @@
+//TRANSMITTER
+
+#include <Wire.h>
+int button0 = 2;
+int button1 = 3;
+int button2 = 4;
+int button3 = 5;
+int button4 = 6;
+int button5 = 7;
+int button6 = 8;
+int button7 = 9;
+int button8 = 10;
+int button9 = 11;
+int button10 = 12;
+int button11 = 13;
+
+void setup() {
+    pinMode(button0, INPUT_PULLUP);
+  pinMode(button1, INPUT_PULLUP);
+  pinMode(button2, INPUT_PULLUP);
+  pinMode(button3, INPUT_PULLUP);
+  pinMode(button4, INPUT_PULLUP);
+  pinMode(button5, INPUT_PULLUP);
+  pinMode(button6, INPUT_PULLUP);
+  pinMode(button7, INPUT_PULLUP);
+  pinMode(button8, INPUT_PULLUP);
+  pinMode(button9, INPUT_PULLUP);
+  pinMode(button10, INPUT_PULLUP);
+  pinMode(button11, INPUT_PULLUP);
+
+  Wire.begin();
+}
+
+void loop() {
+ 
+  if (digitalRead(button0) == LOW) {
+  Wire.beginTransmission(9);   
+    Wire.write(0);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(1);
+  Wire.endTransmission();
+  }
+    
+  if (digitalRead(button1) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(2);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(3);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button2) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(4);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(5);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button3) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(6);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(7);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button4) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(8);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(9);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button5) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(10);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(11);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button6) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(12);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(13);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button7) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(14);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(15);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button8) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(16);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(17);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button9) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(18);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(19);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button10) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(20);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(21);
+    Wire.endTransmission();
+  }
+  if (digitalRead(button11) == LOW) {
+    Wire.beginTransmission(9);
+    Wire.write(22);
+    Wire.endTransmission();
+    delay(30);
+  } else {
+    Wire.beginTransmission(9);
+    Wire.write(23);
+    Wire.endTransmission();
+  }
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,220 @@
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+
+int SwitchPin1 = 2;
+int SwitchPin2 = 3;
+int SwitchPin3 = 4;
+int SwitchPin4 = 5;
+int SwitchPin5 = 6;
+int SwitchPin6 = 7;
+int SwitchPin7 = 8;
+int SwitchPin8 = A0;
+int SwitchPin9 = A1;
+int SwitchPin10 = A2;
+int SwitchPin11 = A3;
+int SwitchPin12 = A4;
+int SwitchPin13 = A5;
+int SwitchPin14 = A6;
+int SwitchPin15 = A7;
+
+int buttonState1 = 0;
+int buttonState2 = 0;
+int buttonState3 = 0;
+int buttonState4 = 0;
+int buttonState5 = 0;
+int buttonState6 = 0;
+int buttonState7 = 0;
+int buttonState8 = 0;
+int buttonState9 = 0;
+int buttonState10 = 0;
+int buttonState11 = 0;
+int buttonState12 = 0;
+int buttonState13 = 0;
+int buttonState14 = 0;
+int buttonState15 = 0;
+
+//int SentMessage[1] = {0000};
+RF24 radio(9, 10);
+
+const byte address[6] = "00003";
+
+void setup()
+{
+  pinMode(SwitchPin1, INPUT_PULLUP);
+  pinMode(SwitchPin2, INPUT_PULLUP);
+  pinMode(SwitchPin3, INPUT_PULLUP);
+  pinMode(SwitchPin4, INPUT_PULLUP);
+  pinMode(SwitchPin5, INPUT_PULLUP);
+  pinMode(SwitchPin6, INPUT_PULLUP);
+  pinMode(SwitchPin7, INPUT_PULLUP);
+  pinMode(SwitchPin8, INPUT_PULLUP);
+  pinMode(SwitchPin9, INPUT_PULLUP);
+  pinMode(SwitchPin10, INPUT_PULLUP);
+  pinMode(SwitchPin11, INPUT_PULLUP);
+  pinMode(SwitchPin12, INPUT_PULLUP);
+  pinMode(SwitchPin13, INPUT_PULLUP);
+  pinMode(SwitchPin14, INPUT_PULLUP);
+  pinMode(SwitchPin15, INPUT_PULLUP);
+
+  radio.begin();
+  radio.openWritingPipe(address);
+  radio.setPALevel(RF24_PA_MIN);
+  radio.stopListening();
+}
+
+void loop()
+{
+  buttonState1 = digitalRead(SwitchPin1);
+  buttonState2 = digitalRead(SwitchPin2);
+  buttonState3 = digitalRead(SwitchPin3);
+  buttonState4 = digitalRead(SwitchPin4);
+  buttonState5 = digitalRead(SwitchPin5);
+  buttonState6 = digitalRead(SwitchPin6);
+  buttonState7 = digitalRead(SwitchPin7);
+  buttonState8 = digitalRead(SwitchPin8);
+  buttonState9 = digitalRead(SwitchPin9);
+  buttonState10 = digitalRead(SwitchPin10);
+  buttonState11 = digitalRead(SwitchPin11);
+  buttonState12 = digitalRead(SwitchPin12);
+  buttonState13 = digitalRead(SwitchPin13);
+  buttonState14 = digitalRead(SwitchPin14);
+  buttonState15 = digitalRead(SwitchPin15);
+
+  if (buttonState1 == 1)
+  {
+    buttonState1 = 1;
+  }
+  else  if (buttonState1 == 0)
+  {
+    buttonState1 = 0;
+  }
+  if (buttonState2 == 1)
+  {
+    buttonState2 = 2;
+  }
+  else  if (buttonState2 == 0)
+  {
+    buttonState2 = 3;
+  }
+  if (buttonState3 == 1)
+  {
+    buttonState3 = 4;
+  }
+  else  if (buttonState3 == 0)
+  {
+    buttonState3 = 5;
+  }
+  if (buttonState4 == 1)
+  {
+    buttonState4 = 6;
+  }
+  else  if (buttonState4 == 0)
+  {
+    buttonState4 = 7;
+  }
+  if (buttonState5 == 1)
+  {
+    buttonState5 = 8;
+  }
+  else  if (buttonState5 == 0)
+  {
+    buttonState5 = 9;
+  }
+  if (buttonState6 == 1)
+  {
+    buttonState6 = 10;
+  }
+  else  if (buttonState6 == 0)
+  {
+    buttonState6 = 11;
+  }
+  if (buttonState7 == 1)
+  {
+    buttonState7 = 12;
+  }
+  else  if (buttonState7 == 0)
+  {
+    buttonState7 = 13;
+  }
+  if (buttonState8 == 1)
+  {
+    buttonState8 = 14;
+  }
+  else  if (buttonState8 == 0)
+  {
+    buttonState8 = 15;
+  }
+  if (buttonState9 == 1)
+  {
+    buttonState9 = 16;
+  }
+  else  if (buttonState9 == 0)
+  {
+    buttonState9 = 17;
+  }
+  if (buttonState10 == 1)
+  {
+    buttonState10 = 18;
+  }
+  else  if (buttonState10 == 0)
+  {
+    buttonState10 = 19;
+  }
+  if (buttonState11 == 1)
+  {
+    buttonState11 = 20;
+  }
+  else  if (buttonState11 == 0)
+  {
+    buttonState11 = 21;
+  }
+  if (buttonState12 == 1)
+  {
+    buttonState12 = 22;
+  }
+  else  if (buttonState12 == 0)
+  {
+    buttonState12 = 23;
+  }
+    if (buttonState13 == 1)
+  {
+    buttonState13 = 24;
+  }
+  else  if (buttonState13 == 0)
+  {
+    buttonState13 = 25;
+  }
+    if (buttonState14 == 1)
+  {
+    buttonState14 = 26;
+  }
+  else  if (buttonState14 == 0)
+  {
+    buttonState14 = 27;
+  }
+
+  if (buttonState15 == 1)
+  {
+    buttonState15 = 28;
+  }
+  else  if (buttonState15 == 0)
+  {
+    buttonState15 = 29;
+  }
+  radio.write(&buttonState1, sizeof(buttonState1));
+  radio.write(&buttonState2, sizeof(buttonState2));
+  radio.write(&buttonState3, sizeof(buttonState3));
+  radio.write(&buttonState4, sizeof(buttonState4));
+  radio.write(&buttonState5, sizeof(buttonState5));
+  radio.write(&buttonState6, sizeof(buttonState6));
+  radio.write(&buttonState7, sizeof(buttonState7));
+  radio.write(&buttonState8, sizeof(buttonState8));
+  radio.write(&buttonState9, sizeof(buttonState9));
+  radio.write(&buttonState10, sizeof(buttonState10));
+  radio.write(&buttonState11, sizeof(buttonState11));
+  radio.write(&buttonState12, sizeof(buttonState12));
+  radio.write(&buttonState13, sizeof(buttonState13));
+  radio.write(&buttonState14, sizeof(buttonState14));
+  radio.write(&buttonState15, sizeof(buttonState15));
+}

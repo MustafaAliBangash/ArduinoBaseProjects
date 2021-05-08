@@ -1,0 +1,172 @@
+#include <Servo.h>
+
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;
+
+int button1 = 12;
+int button2 = 13;
+
+int button1Pressed = 0;
+boolean button2Pressed = false;
+
+int pot1 = A0;
+int pot2 = A1;
+int pot3 = A2;
+int pot4 = A3;
+int pot5 = A4;
+int pot6 = A5;
+
+int pot1Val;
+int pot2Val;
+int pot3Val;
+int pot4Val;
+int pot5Val;
+int pot6Val;
+
+int pot1Angle;
+int pot2Angle;
+int pot3Angle;
+int pot4Angle;
+int pot5Angle;
+int pot6Angle;
+
+int servo1PosSave[] = {1, 1, 1, 1, 1, 1};
+int servo2PosSave[] = {1, 1, 1, 1, 1, 1};
+int servo3PosSave[] = {1, 1, 1, 1, 1, 1};
+int servo4PosSave[] = {1, 1, 1, 1, 1, 1};
+int servo5PosSave[] = {1, 1, 1, 1, 1, 1};
+int servo6PosSave[] = {1, 1, 1, 1, 1, 1};
+
+void setup() {
+
+  servo1.attach(3);
+  servo2.attach(5);
+  servo3.attach(6);
+  servo4.attach(9);
+  servo5.attach(10);
+  servo6.attach(11);
+
+  Serial.begin(9600);
+
+  pinMode(button1, INPUT);
+  pinMode(button2, INPUT);
+
+}
+
+void loop() {
+  pot1Val = analogRead(pot1);
+  pot1Angle = map(pot1Val, 0, 1023, 0, 180);
+  servo1.write(pot1Angle);
+
+  pot2Val = analogRead(pot2);
+  pot2Angle = map(pot2Val, 0, 1023, 0, 180);
+  servo2.write(pot2Angle);
+
+  pot3Val = analogRead(pot3);
+  pot3Angle = map(pot3Val, 0, 1023, 0, 180);
+  servo3.write(pot3Angle);
+
+  pot4Val = analogRead(pot4);
+  pot4Angle = map(pot4Val, 0, 1023, 0, 180);
+  servo4.write(pot4Angle);
+
+  pot5Val = analogRead(pot5);
+  pot5Angle = map(pot5Val, 0, 1023, 0, 180);
+  servo5.write(pot5Angle);
+
+  pot6Val = analogRead(pot6);
+  pot6Angle = map(pot6Val, 0, 1023, 0, 180);
+  servo6.write(pot6Angle);
+
+
+  if (digitalRead(button1) == HIGH) {
+    button1Pressed++;
+    switch (button1Pressed) {
+      case 1:
+        servo1PosSave[0] = pot1Angle;
+        servo2PosSave[0] = pot2Angle;
+        servo3PosSave[0] = pot3Angle;
+        servo4PosSave[0] = pot4Angle;
+        servo5PosSave[0] = pot5Angle;
+        servo6PosSave[0] = pot6Angle;
+        Serial.println("Position 1 is saved");
+        delay(150);
+        break;
+
+      case 2:
+        servo1PosSave[1] = pot1Angle;
+        servo2PosSave[1] = pot2Angle;
+        servo3PosSave[1] = pot3Angle;
+        servo4PosSave[1] = pot4Angle;
+        servo5PosSave[1] = pot5Angle;
+        servo6PosSave[1] = pot6Angle;
+        Serial.println("Position 2 is saved");
+        delay(150);
+        break;
+
+      case 3:
+        servo1PosSave[2] = pot1Angle;
+        servo2PosSave[2] = pot2Angle;
+        servo3PosSave[2] = pot3Angle;
+        servo4PosSave[2] = pot4Angle;
+        servo5PosSave[2] = pot5Angle;
+        servo6PosSave[2] = pot6Angle;
+        Serial.println("Position 3 is saved");
+        delay(150);
+        break;
+
+      case 4:
+        servo1PosSave[3] = pot1Angle;
+        servo2PosSave[3] = pot2Angle;
+        servo3PosSave[3] = pot3Angle;
+        servo4PosSave[3] = pot4Angle;
+        servo5PosSave[3] = pot5Angle;
+        servo6PosSave[3] = pot6Angle;
+        Serial.println("Position 4 is saved");
+        delay(150);
+        break;
+
+      case 5:
+        servo1PosSave[4] = pot1Angle;
+        servo2PosSave[4] = pot2Angle;
+        servo3PosSave[4] = pot3Angle;
+        servo4PosSave[4] = pot4Angle;
+        servo5PosSave[4] = pot5Angle;
+        servo6PosSave[4] = pot6Angle;
+        Serial.println("Position 5 is saved");
+        delay(150);
+        break;
+
+      case 6:
+        servo1PosSave[5] = pot1Angle;
+        servo2PosSave[5] = pot2Angle;
+        servo3PosSave[5] = pot3Angle;
+        servo4PosSave[5] = pot4Angle;
+        servo5PosSave[5] = pot5Angle;
+        servo6PosSave[5] = pot6Angle;
+        Serial.println("Position 6 is saved");
+        delay(150);
+        break;
+    }
+  }
+  if (digitalRead(button2) == HIGH) {
+    button2Pressed = true;
+  }
+
+  if (button2Pressed) {
+    for (int i = 0; i < 6; i++) {
+      servo1.write(servo1PosSave[i]);
+      servo2.write(servo2PosSave[i]);
+      servo3.write(servo3PosSave[i]);
+      servo4.write(servo4PosSave[i]);
+      servo5.write(servo5PosSave[i]);
+      servo6.write(servo6PosSave[i]);
+      delay(200);
+    }
+  }
+  delay(100);
+}

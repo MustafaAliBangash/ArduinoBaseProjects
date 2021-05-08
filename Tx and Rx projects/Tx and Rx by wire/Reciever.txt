@@ -1,0 +1,113 @@
+#include <Wire.h>
+int relayPin0 = 2;
+int relayPin1 = 3;
+int relayPin2 = 4;
+int relayPin3 = 5;
+int relayPin4 = 6;
+int relayPin5 = 7;
+int relayPin6 = 8;
+int relayPin7 = 9;
+int relayPin8 = 10;
+int relayPin9 = 11;
+int relayPin10 = 12;
+int relayPin11 = 13;
+
+int x = 0;
+
+void setup() {
+
+  pinMode (relayPin0, OUTPUT);
+  pinMode (relayPin1, OUTPUT);
+  pinMode (relayPin2, OUTPUT);
+  pinMode (relayPin3, OUTPUT);
+  pinMode (relayPin4, OUTPUT);
+  pinMode (relayPin5, OUTPUT);
+  pinMode (relayPin6, OUTPUT);
+  pinMode (relayPin7, OUTPUT);
+  pinMode (relayPin8, OUTPUT);
+  pinMode (relayPin9, OUTPUT);
+  pinMode (relayPin10, OUTPUT);
+  pinMode (relayPin11, OUTPUT);
+
+  Wire.begin(9);
+  Wire.onReceive(receiveEvent);
+}
+void receiveEvent(int bytes) {
+  x = Wire.read();    
+}
+void loop() {
+ 
+ if (x == 0) {
+    digitalWrite(relayPin0,LOW);
+  }
+  if (x == 1){
+    digitalWrite(relayPin0,HIGH);
+  }
+  if (x == 2){
+    digitalWrite(relayPin1,LOW);
+  }
+  if (x == 3){
+    digitalWrite(relayPin1,HIGH);
+  }
+  if (x == 4){
+    digitalWrite(relayPin2,LOW);
+  }
+  if (x == 5){
+    digitalWrite(relayPin2,HIGH);
+  }
+  if (x == 6){
+    digitalWrite(relayPin3,LOW);
+  }
+  if (x == 7){
+    digitalWrite(relayPin3,HIGH);
+  }
+  if (x == 8){
+    digitalWrite(relayPin4,LOW);
+  }
+  if (x == 9){
+    digitalWrite(relayPin4,HIGH);
+  }
+  if (x == 10){
+    digitalWrite(relayPin5,LOW);
+  }
+  if (x == 11){
+    digitalWrite(relayPin5,HIGH);
+  }
+  if (x == 12){
+    digitalWrite(relayPin6,LOW);
+  }
+  if (x == 13){
+    digitalWrite(relayPin6,HIGH);
+  }
+  if (x == 14){
+    digitalWrite(relayPin7,LOW);
+  }
+  if (x == 15){
+    digitalWrite(relayPin7,HIGH);
+  }
+  if (x == 16){
+    digitalWrite(relayPin8,LOW);
+  }
+  if (x == 17){
+    digitalWrite(relayPin8,HIGH);
+  }
+  if (x == 18){
+    digitalWrite(relayPin9,LOW);
+  }
+  if (x == 19){
+    digitalWrite(relayPin9,HIGH);
+  }
+  if (x == 20){
+    digitalWrite(relayPin10,LOW);
+  }
+  if (x == 21){
+    digitalWrite(relayPin10,HIGH);
+  }
+  if (x == 22){
+    digitalWrite(relayPin11,LOW);
+  }
+  if (x == 23){
+    digitalWrite(relayPin11,HIGH);
+  }
+}
+ 

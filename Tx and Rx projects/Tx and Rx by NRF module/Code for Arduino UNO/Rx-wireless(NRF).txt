@@ -1,0 +1,150 @@
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+
+int LED_PIN1 = 2;
+int LED_PIN2 = 3;
+int LED_PIN3 = 4;
+int LED_PIN4 = 5;
+int LED_PIN5 = 6;
+int LED_PIN6 = 7;
+int LED_PIN7 = 8;
+int LED_PIN8 = A0;
+int LED_PIN9 = A1;
+int LED_PIN10 = A2;
+int LED_PIN11 = A3;
+int LED_PIN12 = A4;
+int LED_PIN13 = A5;
+int LED_PIN14 = 0;
+int LED_PIN15 = 1;
+
+int buttonState = 0;
+//int ReceivedMessage[1] = {0000};
+RF24 radio(9, 10);
+
+const byte address[6] = "00002";
+
+void setup(void)
+{
+  radio.begin();
+
+  radio.openReadingPipe(0, address);
+
+  radio.startListening();
+
+  pinMode(LED_PIN1, OUTPUT);
+  pinMode(LED_PIN2, OUTPUT);
+  pinMode(LED_PIN3, OUTPUT);
+  pinMode(LED_PIN4, OUTPUT);
+  pinMode(LED_PIN5, OUTPUT);
+  pinMode(LED_PIN6, OUTPUT);
+  pinMode(LED_PIN7, OUTPUT);
+  pinMode(LED_PIN8, OUTPUT);
+  pinMode(LED_PIN9, OUTPUT);
+  pinMode(LED_PIN10, OUTPUT);
+  pinMode(LED_PIN11, OUTPUT);
+  pinMode(LED_PIN12, OUTPUT);
+  pinMode(LED_PIN13, OUTPUT);
+  pinMode(LED_PIN14, OUTPUT);
+  pinMode(LED_PIN15, OUTPUT);
+}
+
+void loop(void)
+{
+  radio.startListening();
+  while (!radio.available());
+  radio.read(&buttonState, sizeof(buttonState));
+
+  if (buttonState == 1) {
+    digitalWrite(LED_PIN1, HIGH);
+  }
+  else  if (buttonState == 0) {
+    digitalWrite(LED_PIN1, LOW);
+  }
+  else if (buttonState == 2) {
+    digitalWrite(LED_PIN2, HIGH);
+  }
+  else  if (buttonState == 3) {
+    digitalWrite(LED_PIN2, LOW);
+  }
+  else if (buttonState == 4) {
+    digitalWrite(LED_PIN3, HIGH);
+  }
+  else  if (buttonState == 5) {
+    digitalWrite(LED_PIN3, LOW);
+  }
+  else if (buttonState == 6) {
+    digitalWrite(LED_PIN4, HIGH);
+  }
+  else  if (buttonState == 7) {
+    digitalWrite(LED_PIN4, LOW);
+  }
+  else if (buttonState == 8) {
+    digitalWrite(LED_PIN5, HIGH);
+  }
+  else  if (buttonState == 9) {
+    digitalWrite(LED_PIN5, LOW);
+  }
+  else if (buttonState == 10) {
+    digitalWrite(LED_PIN6, HIGH);
+  }
+  else  if (buttonState == 11) {
+    digitalWrite(LED_PIN6, LOW);
+  }
+  else if (buttonState == 12) {
+    digitalWrite(LED_PIN7, HIGH);
+  }
+  else  if (buttonState == 13) {
+    digitalWrite(LED_PIN7, LOW);
+  }
+  else if (buttonState == 14) {
+    digitalWrite(LED_PIN8, HIGH);
+  }
+  else  if (buttonState == 15) {
+    digitalWrite(LED_PIN8, LOW);
+  }
+  else if (buttonState == 16) {
+    digitalWrite(LED_PIN9, HIGH);
+  }
+  else  if (buttonState == 17) {
+    digitalWrite(LED_PIN9, LOW);
+  }
+  else if (buttonState == 18) {
+    digitalWrite(LED_PIN10, HIGH);
+  }
+  else  if (buttonState == 19) {
+    digitalWrite(LED_PIN10, LOW);
+  }
+  else if (buttonState == 20) {
+    digitalWrite(LED_PIN11, HIGH);
+  }
+  else  if (buttonState == 21) {
+    digitalWrite(LED_PIN11, LOW);
+  }
+  else if (buttonState == 22) {
+    digitalWrite(LED_PIN12, HIGH);
+  }
+  else  if (buttonState == 23) {
+    digitalWrite(LED_PIN12, LOW);
+  }
+  else if (buttonState == 24) {
+    digitalWrite(LED_PIN13, HIGH);
+  }
+  else  if (buttonState == 25) {
+    digitalWrite(LED_PIN13, LOW);
+  }
+  else if (buttonState == 26) {
+    digitalWrite(LED_PIN14, HIGH);
+  }
+  else  if (buttonState == 27) {
+    digitalWrite(LED_PIN14, LOW);
+  }
+  else if (buttonState == 28) {
+    digitalWrite(LED_PIN15, HIGH);
+  }
+  else  if (buttonState == 29) {
+    digitalWrite(LED_PIN15, LOW);
+  }
+
+}
+
